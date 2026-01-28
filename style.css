@@ -651,6 +651,128 @@ section {
 }
 
 /* ===================================
+   PRODUCT SECTION
+   =================================== */
+.product-section {
+    background: var(--bg-dark);
+    color: white;
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle background glow */
+.product-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: var(--primary-gradient);
+    filter: blur(150px);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.product-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.product-visual {
+    position: relative;
+}
+
+.product-image-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--shadow-glow);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s ease;
+}
+
+.product-image-container:hover {
+    transform: perspective(1000px) rotateY(0) rotateX(0);
+}
+
+.product-text {
+    padding-right: var(--spacing-xl);
+}
+
+.product-description {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.product-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.product-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.feature-icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #a0aec0;
+}
+
+.product-feature h4 {
+    color: white;
+    margin-bottom: 2px;
+    font-size: 1rem;
+}
+
+.product-feature p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+@media (max-width: 968px) {
+    .product-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .product-text {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .product-visual {
+        order: 1;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .product-image-container {
+        transform: none;
+    }
+}
+
+/* ===================================
    WHY US SECTION
    =================================== */
 .why-us {
